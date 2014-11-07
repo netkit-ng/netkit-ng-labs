@@ -1,0 +1,5 @@
+ifconfig eth0 10.0.0.3 netmask 255.255.255.0 broadcast 10.0.0.255
+
+route add default gw 10.0.0.1
+
+/etc/init.d/bind start

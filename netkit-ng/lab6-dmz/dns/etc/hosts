@@ -1,0 +1,7 @@
+172.16.0.50	pc1		pc1.my.network
+172.16.0.51	pc2		pc2.my.network
+172.16.0.4	dhcp		dhcp.my.network
+192.168.0.1	dns		dns.my.network
+192.168.0.5	http		http.my.network
+
+127.0.0.1 localhost localhost.localdomain

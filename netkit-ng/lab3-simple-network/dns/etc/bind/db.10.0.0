@@ -1,0 +1,13 @@
+$TTL    1D
+@       IN      SOA  dns.my.internet. root.my.internet. (
+        2006031201      ; serial
+        28800           ; refresh
+        14400           ; retry
+        3600000         ; expire
+        86400 )         ; minimum
+
+        NS dns.my.internet.
+
+1       PTR     router.my.internet.
+2       PTR     httpd.my.internet.
+3       PTR     dns.my.internet.

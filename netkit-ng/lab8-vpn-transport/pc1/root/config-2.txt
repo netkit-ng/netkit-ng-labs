@@ -1,6 +1,5 @@
 flush;
 spdflush;
 
+add 192.168.0.1 192.168.0.2 esp 0x301 -E 3des-cbc 0xf6ddb555acfd9d77b03ea3843f2653255afe8eb5573965df;
 spdadd 192.168.0.1 192.168.0.2 any -P out ipsec esp/transport//require;
-spdadd 192.168.0.2 192.168.0.1 any -P in ipsec esp/transport//require;
-

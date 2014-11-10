@@ -1,0 +1,8 @@
+flush;
+spdflush;
+
+add 172.16.0.1 172.16.0.2 ah 24500 -m transport -A hmac-md5  "123456789012123456789012";
+add 172.16.0.2 172.16.0.1 ah 24501 -m transport -A hmac-sha1 "0123456789ABCDEF12345678";
+
+spdadd 192.168.0.0/24 192.168.2.0/24 any -P out ipsec ah/transport/172.16.0.1-172.16.0.2/require;
+spdadd 192.168.2.0/24 192.168.0.0/24 any -P in ipsec ah/transport/172.16.0.2-172.16.0.1/require;

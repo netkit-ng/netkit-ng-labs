@@ -1,0 +1,7 @@
+ifconfig eth0 192.168.0.1 netmask 255.255.255.0 broadcast 192.168.0.255
+
+# stupid route to avoid %defaultroute error message from ipsec
+route add default eth0
+
+# protect PSK file
+chmod 600 /etc/racoon/psk.txt

@@ -1,0 +1,6 @@
+flush;
+spdflush;
+
+add 192.168.0.1 192.168.0.2 ah 24500 -A hmac-md5 "1234567890123456";          
+spdadd 192.168.0.1 192.168.0.2 any -P out ipsec ah/transport//require;
+

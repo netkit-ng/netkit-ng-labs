@@ -1,0 +1,7 @@
+ifconfig eth0 192.168.2.1/24
+ifconfig eth1 172.16.0.2/16
+route add default gw 172.16.0.1
+
+# echo "1" > /proc/sys/net/ipv4/ip_forward
+# chmod 600 /etc/racoon/psk.txt
+

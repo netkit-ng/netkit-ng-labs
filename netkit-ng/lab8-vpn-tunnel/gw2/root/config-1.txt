@@ -1,0 +1,9 @@
+flush;
+spdflush;
+
+add 111.16.32.213 32.33.1.2 esp 24500 -m tunnel -E 3des-cbc "123456789012123456789012";
+add 32.33.1.2 111.16.32.213 esp 24500 -m tunnel -E 3des-cbc "0123456789ABCDEF12345678";
+
+spdadd 192.168.2.0/24 192.168.0.0/24 any -P out ipsec esp/tunnel/111.16.32.213-32.33.1.2/require;
+spdadd 192.168.0.0/24 192.168.2.0/24 any -P in ipsec ah/tunnel/32.33.1.2-111.16.32.213/require;
+

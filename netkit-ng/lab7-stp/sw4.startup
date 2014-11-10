@@ -1,0 +1,12 @@
+ifconfig eth0 hw ether 00:02:05:00:03:00
+ifconfig eth1 hw ether 00:02:05:00:03:01
+
+ifconfig eth0 up
+ifconfig eth1 up
+
+brctl addbr br0
+brctl addif br0 eth0
+brctl addif br0 eth1
+
+ifconfig br0 up
+

@@ -1,0 +1,5 @@
+Ported Original Netkit Labs
+===========================
+
+The repository contains labs working on Netkit-NG from original Netkit available at 
+http://www.netkit.org/

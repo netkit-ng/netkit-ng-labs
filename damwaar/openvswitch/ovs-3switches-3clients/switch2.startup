@@ -1,0 +1,16 @@
+ip=$(which ip)
+ovsvsctl=$(which ovs-vsctl)
+
+/etc/init.d/openvswitch-switch start
+
+$ip link set eth0 up
+$ip link set eth1 up
+$ip link set eth2 up
+
+$ovsvsctl add-br br2
+$ovsvsctl add-port br2 eth0
+$ovsvsctl add-port br2 eth1
+$ovsvsctl add-port br2 eth2
+$ovsvsctl set Bridge br2 stp_enable=on
+
+$ip link set br2 up

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+sleep 20
+
+# Dump information about the status of the BGP peering
+expect -c "
+spawn telnet localhost bgpd
+expect \"Password:*\"
+send \"zebra\\r\"
+expect \"bgpd>*\"
+send \"terminal length 0\\r\"
+expect \"bgpd>*\"
+send \"show ip bgp\\r\"
+expect \"bgpd>*\"
+send \"exit\\r\"
+send_user \"\\r\"" | sed -n '20,$p' | head -n -3 | sort
+
+sleep 10
+
+touch /hostlab/as20r1.testdone
+halt
+

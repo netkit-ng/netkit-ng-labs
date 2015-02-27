@@ -1,0 +1,5 @@
+#!/bin/sh
+
+touch /hostlab/as200r1.testdone
+halt
+

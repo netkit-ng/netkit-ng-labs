@@ -1,0 +1,12 @@
+pour ripd.conf
+
+log file /var/log/quagga/ripd.log
+
+
+pour bgpd.conf
+
+log file /var/log/quagga/bgpd.log
+
+
+
+

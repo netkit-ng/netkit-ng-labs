@@ -1,0 +1,15 @@
+ip=$(which ip)
+ovsvsctl=$(which ovs-vsctl)
+
+/etc/init.d/openvswitch-switch start
+
+$ip addr add 192.168.0.6/30 dev eth1
+
+$ip link set eth0 up
+$ip link set eth1 up
+
+$ip route add 192.168.0.0/30 via 192.168.0.5
+
+$ovsvsctl add-br br2
+$ovsvsctl add-port br2 eth0
+$ovsvsctl add-port br2 vxlan2 -- set interface vxlan2 type=vxlan options:remote_ip=192.168.0.2

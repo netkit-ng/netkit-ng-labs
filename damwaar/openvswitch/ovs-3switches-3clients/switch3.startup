@@ -12,5 +12,3 @@ $ovsvsctl add-port br3 eth0
 $ovsvsctl add-port br3 eth1
 $ovsvsctl add-port br3 eth2
 $ovsvsctl set Bridge br2 stp_enable=on
-
-$ip link set br3 up

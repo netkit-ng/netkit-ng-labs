@@ -1,0 +1,12 @@
+#!/bin/sh
+
+sleep 20
+
+# Dump information about the status of the BGP peering
+vtysh -c "show ip bgp summary" | awk '/^[0-9]/ {print $1,$2,$3}'
+
+sleep 10
+
+touch /hostlab/router1.testdone
+halt
+

@@ -6,9 +6,8 @@
 # /usr/doc/zebra/README.Debian for details.
 # Daemons are: bgpd zebra ospfd ospf6d ripd ripngd
 zebra=yes
-bgpd=yes
+bgpd=no
 ospfd=no
 ospf6d=no
-ripd=no
+ripd=yes
 ripngd=no
-

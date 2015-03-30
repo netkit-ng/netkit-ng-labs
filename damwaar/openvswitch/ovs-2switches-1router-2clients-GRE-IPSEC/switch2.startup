@@ -1,0 +1,22 @@
+ip=$(which ip)
+ovsvsctl=$(which ovs-vsctl)
+ovsofctl=$(which ovs-ofctl)
+iptables=$(which iptables)
+
+/etc/init.d/openvswitch-switch start
+/etc/init.d/openvswitch-ipsec start
+
+$ip addr add 192.168.0.6/30 dev eth1
+
+$ip link set eth0 up
+$ip link set eth1 up
+
+$ip route add 192.168.0.0/30 via 192.168.0.5
+
+$ovsvsctl add-br br2
+$ovsvsctl add-port br2 eth0
+$ovsvsctl add-port br2 gre2 -- set interface gre2 type=ipsec_gre options:remote_ip=192.168.0.2 options:psk=toto
+
+$iptables -A INPUT -t mangle -p esp -j MARK --set-mark 1/1
+$iptables -A INPUT -t mangle -p udp --dport 4500 -j MARK --set-mark 1/1
+

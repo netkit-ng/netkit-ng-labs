@@ -1,0 +1,23 @@
+!
+hostname ospfd
+password zebra
+enable password zebra
+!
+! Default cost for exiting an interface is 10
+interface eth0
+ospf cost 10
+interface eth1
+ospf cost 10
+!
+router ospf
+! Speak OSPF on all interfaces falling in 10.0.0.0/16
+network 192.168.0.0/16 area 2.2.2.2
+network 142.0.0.0/16 area 2.2.2.2
+network 146.0.0.0/16 
+network 147.0.0.0/16 
+redistribute connected
+!
+log file /var/log/quagga/ospfd.log
+!
+
+

@@ -1,0 +1,13 @@
+ip=$(which ip)
+vconfig=$(which vconfig)
+
+$vconfig add eth0 100
+$vconfig add eth0 200
+
+$ip link set eth0 up
+$ip link set eth0.100 up
+$ip link set eth0.200 up
+
+
+$ip addr add 10.0.100.254/24 dev eth0.100
+$ip addr add 10.0.200.254/24 dev eth0.200

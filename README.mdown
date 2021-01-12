@@ -1,7 +1,9 @@
+WARNING: The netkit-NG project is deprecated in favoir of Netkit-JH
+
 Netkit-NG Labs
 ==============
 
 The repository contains labs working on Netkit-NG:
 
-* 'kartoch' are Julien Iguchi-Cartigny Labs
+* 'kartoch' are Julien Cartigny Labs
 * 'netkit' contains Netkit labs ported to Netkit-NG
